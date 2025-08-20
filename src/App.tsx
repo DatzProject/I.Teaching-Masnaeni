@@ -28,7 +28,7 @@ ChartJS.register(
 );
 
 const endpoint =
-  "https://script.google.com/macros/s/AKfycbzqBLmXp_9jEhn8rb0uXn4T64oU58dCVV3ipD82kNrL6rXGI78sg7q7n9pG7ROF3Y_Y/exec";
+  "https://script.google.com/macros/s/AKfycbyJc9cAFH3W8dqfVkRYS4Y2PSUr_2RWongZTjuj4H4m3Ym4ezwfy-HY-2x8LWSvF_kTDA/exec";
 const SHEET_SEMESTER1 = "RekapSemester1";
 const SHEET_SEMESTER2 = "RekapSemester2";
 
@@ -3607,7 +3607,7 @@ const SplashScreen: React.FC = () => {
         className="w-52 h-70 mb-4 animate-pulse-custom" //Pengaturan ukuran logo
       />
       <p className="text-gray-800 text-lg font-semibold mt-6">
-        Tunggu Sebentar
+        Masnaeni, S.Pd
       </p>
     </div>
   );
