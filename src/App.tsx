@@ -95,6 +95,7 @@ interface AttendanceHistory {
   kelas: string;
   nisn: string;
   status: AttendanceStatus;
+  duplikat: string;
 }
 
 interface SemesterRecap {
@@ -2320,12 +2321,24 @@ const AttendanceHistoryTab: React.FC<{
         !record.status.toString().includes("FORMULA") &&
         ["Hadir", "Izin", "Sakit", "Alpha"].includes(record.status.toString());
 
+      // Tambahkan validasi untuk kolom duplikat: hanya ambil jika nilai eksak "-", dan bukan formula/error
+      const hasValidDuplikat =
+        record.duplikat &&
+        record.duplikat.toString().trim() === "-" && // Hanya ambil jika "-"
+        !record.duplikat.toString().startsWith("=") &&
+        record.duplikat.toString() !== "#N/A" &&
+        record.duplikat.toString() !== "#REF!" &&
+        record.duplikat.toString() !== "#VALUE!" &&
+        record.duplikat.toString() !== "#ERROR!" &&
+        !record.duplikat.toString().includes("FORMULA");
+
       return (
         hasValidTanggal &&
         hasValidNama &&
         hasValidNisn &&
         hasValidKelas &&
-        hasValidStatus
+        hasValidStatus &&
+        hasValidDuplikat // Tambahkan ini untuk memfilter berdasarkan duplikat = "-"
       );
     });
   };
